@@ -1,0 +1,58 @@
+<form [formGroup]="userInfoForm" novalidate="novalidate" class="form">    <mat-card class="user-card">
+        <div class="d-flex p-2 pt-2 justify-content-between align-items-center border-bottom" style="background-color: #e7eacd;">
+            <h5 class="text-right mb-0" style="font-size: 14px; margin-left: 10px;"><strong>Update User Information</strong></h5>
+            <span  class="p-1" (click)="closeDialog()"> <i class="fa fa-times" aria-hidden="true"></i> </span>
+        </div>
+        <mat-card-content class="p-3">
+    <div class="row">
+
+        <div class="col-sm-6">
+            <span class="title-name">Name</span>
+            <input class="form-control" matInput type="text" placeholder="Enter Name" formControlName="name">
+        </div>
+
+        <div class="col-sm-6">
+            <span class="title-name">Domain</span>
+            <input class="form-control" matInput type="text" placeholder="Enter Domain" formControlName="domain">
+        </div>
+
+        <div class="col-sm-6 mt-3">
+            <span class="title-name">Gender</span>
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="gender">
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+              </mat-radio-group>
+        </div>
+
+        <div class="col-sm-6">
+            <span class="title-name">Date of Birth</span>
+                <div style="display: flex;">
+                <div >
+                    <input class="form-control" matInput [matDatepicker]="picker" formControlName="dob">   
+                </div> 
+                <div >            
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+                </div>
+        </div>
+
+        <div class="col-sm-6">
+            <span class="title-name">Phone Number</span>
+            <input class="form-control" matInput placeholder="Enter Number" formControlName="phoneNumber">
+        </div>
+
+        <div class="col-sm-6">
+            <span class="title-name">Location</span>
+            <input class="form-control" matInput type="text" placeholder="Enter Name" formControlName="location">
+        </div>
+
+        <div class="p-3 justify-content-between align-items-center" style="text-align: right;">
+            <button mat-flat-button color="primary" (click)="updateUserInfo()" style="margin-right: 15px;">Save</button>
+            <button class="warn" mat-flat-button color="warn" (click)="closeDialog()">Close</button>
+        </div>
+    </div>
+</mat-card-content>
+</mat-card>
+</form>
+
